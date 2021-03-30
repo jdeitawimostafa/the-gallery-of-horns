@@ -5,6 +5,7 @@ $.ajax('./data/page1.json').then(galleryData =>{
         let newItem = new galleryItem(items);
         newItem.renderNewItem();
     });
+    $('#photo-template').first().remove();
 });
 let keydowrds = [];
 function galleryItem(key){
