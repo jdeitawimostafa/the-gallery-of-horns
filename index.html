@@ -12,10 +12,12 @@
     <title>The Gallery of Horns</title>
 
     <script id='galleryTemplate' type='text/x-tmpl-mustache'>
-        <section id="mustache-template">
+        <section class={{keyword}}  id="mustache-template">
+            <div class={{keyword}} >
             <h2>{{title}}</h2>
             <img src = '{{image}}' alt='{{image}}'>
             <p>{{description}}</p>
+        </div>
         </section>
     </script>
 </head>
@@ -37,7 +39,6 @@
         <p></p>
     </section>
     <main>
-       
         
     </main>
     <footer>
