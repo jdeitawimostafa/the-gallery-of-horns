@@ -1,6 +1,8 @@
 'use strict';
 
-$.ajax('./data/page1.json').then(galleryData =>{
+
+function rendertemplate() {
+    $.ajax('./data/page1.json').then(galleryData =>{
     galleryData.forEach(items =>{
         $('section').show();
         let newItem = new galleryItem(items);
@@ -8,6 +10,8 @@ $.ajax('./data/page1.json').then(galleryData =>{
     });
     $('#photo-template').first().remove();
 });
+}
+rendertemplate();
 let keydowrds = [];
 function galleryItem(key){
     this.title = key.title;
