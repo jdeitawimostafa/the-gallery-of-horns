@@ -2,6 +2,7 @@
 
 $.ajax('./data/page1.json').then(galleryData =>{
     galleryData.forEach(items =>{
+        $('section').show();
         let newItem = new galleryItem(items);
         newItem.renderNewItem();
     });
