@@ -1,16 +1,17 @@
-#photo-template , #mustache-template {
+section   {
     float: left;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 30%;
-    height: 450px;
+    height: 300px;
     text-align: center;
 }
-#photo-template img , #mustache-template img {
+section img {
     width: 60%;
+   height: 100px;
 }
 
-#photo-template:hover , #mustache-template:hover{
+section:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 

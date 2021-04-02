@@ -2,14 +2,8 @@ body {
     margin: auto;
 }
 
-#photo-template {
+section {
     padding: 2px 16px;
-    margin-top: 150px;
+    margin-top: 180px;
     margin-bottom: 20px;
-}
-
-#mustache-template {
-    padding: 2px 16px;
-    margin-top: 150px;
-    margin-bottom: 20px;  
 }
