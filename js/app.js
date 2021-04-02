@@ -1,5 +1,4 @@
 'use strict';
-
 let allArray = [];
 let keydowrds = [];
 function galleryItem(key) {
@@ -47,11 +46,13 @@ function keywordOption() {
         $('select').append(keywordsList);
 
     }
-}
 
+   
+}
 
 galleryItem.prototype.renderNewItem = function () {
     let sectionCopy = $('#photo-template').first().clone();
+    sectionCopy.addClass(this.keyword);
     $('main').append(sectionCopy);
     sectionCopy.addClass(this.keyword);
     sectionCopy.find('h2').text(this.title);
@@ -97,7 +98,6 @@ $('#sort-title').click(handleSubmit);
 function handleSubmit() {
     allArray.sort((a, b) => {
         return a.title.localeCompare(b.title);
-        // return a.horns-b.horns;
     });
     $('section').hide();
     const mainPage = document.querySelector('main');

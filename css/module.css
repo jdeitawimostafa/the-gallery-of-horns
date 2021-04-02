@@ -6,4 +6,9 @@ section {
     padding: 2px 16px;
     margin-top: 180px;
     margin-bottom: 20px;
+
+}
+
+select {
+    margin-top: 50px;
 }
