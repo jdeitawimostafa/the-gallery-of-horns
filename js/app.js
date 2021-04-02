@@ -116,9 +116,9 @@ function handleSubmit() {
     }
 }
 
-$('#sort-horns').click(handleSubmit);
+$('#sort-horns').click(handleSubmitHrons);
 
-function handleSubmit() {
+function handleSubmitHrons() {
     allArray.sort((a, b) => {
         return a.horns-b.horns;
     });
