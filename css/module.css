@@ -4,11 +4,17 @@ body {
 
 #photo-template {
     padding: 2px 16px;
-    margin-top: 100px;
+    margin-top: 150px;
     margin-bottom: 20px;
 
 }
 
 select {
     margin-top: 50px;
+}
+
+#mustache-template {
+    padding: 2px 16px;
+    margin-top: 150px;
+    margin-bottom: 20px;  
 }
