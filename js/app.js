@@ -1,11 +1,19 @@
 'use strict';
+    $.ajax('./data/page1.json').then(galleryData =>{
+    galleryData.forEach(items =>{
+        let newItem = new galleryItem(items);
+        newItem.renderNewItem();
+    });
+    editiedKeywords();
+    $('#photo-template').first().remove();
+});
 
 
 let keydowrds = [];
 function galleryItem(key){
     this.title = key.title;
     this.image = key.image_url;
-    this.description =key.description;
+    this.description = key.description;
     this.keyword = key.keyword;
     this.horns = key.horns;   
     
@@ -15,29 +23,6 @@ function galleryItem(key){
 }
 }
 
-$.ajax('./data/page1.json').then(galleryData =>{
-    galleryData.forEach(items =>{
-    let newItem = new galleryItem(items);
-    newItem.renderNewItem();
-    });
-    $('body > #photo-template').hide();
-    keywordOption();
-});
-
-$('#page1').click(function(){
-    console.log()
-    $('main').html('');
-    $('section').show();
-    $.ajax('./data/page1.json').then(galleryData =>{
-    galleryData.forEach(items =>{
-    let newItem = new galleryItem(items);
-    newItem.renderNewItem();
-    });
-    keywordOption();
-    $('body > #photo-template').hide();
-});
-});
-
 function keywordOption(){
     for( let i = 0 ; i<keydowrds.length ; i++){
          let keywordsList = $('option').first().clone().text(keydowrds[i]);
@@ -45,11 +30,24 @@ function keywordOption(){
          $('select').append(keywordsList);
 
     }
+
+   
+}
+
+function editiedKeywords(){
+    for ( let i = 0 ; i<keydowrds.length; i++){
+        let options = $('option').first().clone().text(keydowrds[i]);
+        $('select').append(options);
+        // options.attr('value',keydowrds[i]);
+    }
+    console.log(keydowrds);
+
 }
 
 
 galleryItem.prototype.renderNewItem = function(){
     let sectionCopy = $('#photo-template').first().clone();
+    sectionCopy.addClass(this.keyword);
     $('main').append(sectionCopy);
     sectionCopy.addClass(this.keyword);
     // sectionCopy.css('visibility','visible');
@@ -58,41 +56,4 @@ galleryItem.prototype.renderNewItem = function(){
     sectionCopy.find('p').text(this.description);
 }
 
-
-
-    $('select').change(function(){
-        let selectedKey = $(this).val();
-        console.log(selectedKey);
-        $('section').hide();
-        $(`.${selectedKey}`).show();
-    });
-
-    // $('select').change(function(){
-    //     let selectedKey = $(this).val();
-    //     console.log(selectedKey);
-    //     $('article').hide();
-    //     $(`.${selectedKey}`).show();
-    // });
-
-$('#page2').click(function(){
-    $('main').html('');
-    $('section').show();
-    $.ajax('./data/page2.json').then(data => {
-        console.log(data);
-        data.forEach(objItem => {
-            let newObj = new galleryItem(objItem);
-            newObj.renderNewObj();
-        })
-        $('body > #photo-template').hide();
-        console.log(keydowrds);
-    })
-});
-galleryItem.prototype.renderNewObj = function(){
-    let mustacheTemp = $('#galleryTemplate').html();
-    let renderTem = Mustache.render(mustacheTemp,this);
-    console.log(this);
-    console.log(mustacheTemp);
-    $('main').append(renderTem); 
-    // $('#mustache-template').addClass(this.keyword);
-}
 

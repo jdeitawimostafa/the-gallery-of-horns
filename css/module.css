@@ -6,6 +6,11 @@ body {
     padding: 2px 16px;
     margin-top: 150px;
     margin-bottom: 20px;
+
+}
+
+select {
+    margin-top: 50px;
 }
 
 #mustache-template {
